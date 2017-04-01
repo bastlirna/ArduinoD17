@@ -1,44 +1,48 @@
-# Arduino Workshop pro pokroèilé (no dobøe, lehce pokroèilé)
+# Arduino Workshop pro pokroÄilÃ© (no dobÅ™e, lehce pokroÄilÃ©)
 
-Tento wokrshop je zamìøen hlavnì na programování, nebudeme ani tak øešit jak pøipojit k Arduino teplomìr, display nebo tlaèítko (to u patrnì víte) nebo co je to promìnná, jak ji definovat nebo jak napsat *for* cyklus (to u byste mìli taky vìdìt, pokud pøijdete). My se podíváme na to, jak napsat program, kterı zvládne nìkolik vìcí najednou (multitasking), program kterı má sloitou logiku a jak napsat program, aby ho ještì nìkdo nìkdy zvládnul pøeèíst (vèetnì jeho autora).
+Tento wokrshop je zamÄ›Å™en hlavnÄ› na programovÃ¡nÃ­, nebudeme ani tak Å™eÅ¡it jak pÅ™ipojit k Arduino teplomÄ›r, display nebo tlaÄÃ­tko (to uÅ¾ patrnÄ› vÃ­te) nebo co je to promÄ›nnÃ¡, jak ji definovat nebo jak napsat *for* cyklus (to uÅ¾ byste mÄ›li taky vÄ›dÄ›t, pokud pÅ™ijdete). My se podÃ­vÃ¡me na to, jak napsat program, kterÃ½ zvlÃ¡dne nÄ›kolik vÄ›cÃ­ najednou (multitasking), program kterÃ½ mÃ¡ sloÅ¾itou logiku a jak napsat program, aby ho jeÅ¡tÄ› nÄ›kdo nÄ›kdy zvlÃ¡dnul pÅ™eÄÃ­st (vÄetnÄ› jeho autora).
 
 ## Prerekvizity
 
-Úèastník by mìl:
+ÃšÄastnÃ­k by mÄ›l:
 
-- umìt programovat (ideálnì znal C/C++)
-- umìt programovat Arduino
-- umìt k Arduinu pøipojit periferie (tlaèítko, LED, i2c ic, ...)
+- umÄ›t programovat (ideÃ¡lnÄ› znal C/C++)
+- umÄ›t programovat Arduino
+- umÄ›t k Arduinu pÅ™ipojit periferie (tlaÄÃ­tko, LED, i2c ic, ...)
 
-Ideální úèastník je èlovìk, kterı si zaèíná pouívat Arduino (napø. absolvoval https://arduino101.cz/) a má u nìjaké zkušenosti s progamováním (napø. PHP, Java, ...) 
+IdeÃ¡lnÃ­ ÃºÄastnÃ­k je ÄlovÄ›k, kterÃ½ si zaÄÃ­nÃ¡ pouÅ¾Ã­vat Arduino (napÅ™. absolvoval https://arduino101.cz/) a mÃ¡ uÅ¾ nÄ›jakÃ© zkuÅ¡enosti s progamovÃ¡nÃ­m (napÅ™. PHP, Java, ...) 
 
 ## Osnova
 
-- Píšeme neblokující kód
-- Píšeme kooperativní multitasking
-- Píšeme stavovı automat
+- PÃ­Å¡eme neblokujÃ­cÃ­ kÃ³d
+- PÃ­Å¡eme kooperativnÃ­ multitasking
+- PÃ­Å¡eme stavovÃ½ automat
 
-## Co se nauèíte
+## Co se nauÄÃ­te
 
-- jak nepouívat `delay` (nikdy!)
-- na co jsou dobré ukazatele, a hlavnì ukazatele na funkce
-- jak èlenit sloitı kód
-- jak efektivnì pouívat Arduino IDE (a proè ho nepouívat a pøejít na nìco jiného...)
+- jak nepouÅ¾Ã­vat `delay` (nikdy!)
+- na co jsou dobrÃ© ukazatele, a hlavnÄ› ukazatele na funkce
+- jak Älenit sloÅ¾itÃ½ kÃ³d
+- jak efektivnÄ› pouÅ¾Ã­vat Arduino IDE (a proÄ ho nepouÅ¾Ã­vat a pÅ™ejÃ­t na nÄ›co jinÃ©ho...)
 
-## Úkol
+## Ãškol
 
-Bìhem workshopu budete mít pouze jeden jedinı úkol: **naprogramujte ratrapánky** ... e nevíte co to je? Ratrapánky jsou [stopy](https://cs.wikipedia.org/wiki/Stopky), které umí mìøit mezièas. 
+BÄ›hem workshopu budete mÃ­t pouze jeden jedinÃ½ Ãºkol: **naprogramujte ratrapÃ¡nky** ... Å¾e nevÃ­te co to je? RatrapÃ¡nky jsou [stopy](https://cs.wikipedia.org/wiki/Stopky), kterÃ© umÃ­ mÄ›Å™it meziÄas. 
 
-Bìhem workshopu budete pouívat [EduShield](https://www.edushield.cz/cs/).
+BÄ›hem workshopu budete pouÅ¾Ã­vat [EduShield](https://www.edushield.cz/cs/).
 
-### Poadavky
+### PoÅ¾adavky
 
-- Stopky budou na displeji zobrazovat ubìhnutı èas ve formátu `00.00`, kde první èást jsou vteøiny a druhá èást setiny vteøin. Stopky mìøí èas do 99.99 vteøin (pro jednoduchost).
-- Po zapnutí se stopky dostanou do poèáteèního stavu, kde na displeji vidíte `00.00` a stopky èekají na spuštìní.
-- Stopky se spustí krátkım stiskem tlaèítka.
-- Následující krátké spuštìní zaznamená mezièas. Mezièas se zobrazí na 1 vteøinu na displeji (stopky mezitím bìí dál).
-- Mezivısledek se ukládá do pamìti (stopky uloí a 20 mezièasù).
-- Dlouhım stiskem tlaèítka (delším ne 1 vteøina) se stopky zastaví, na displeji zùstane svítit celkovı èas a všechny mezivısledky se vypíšou na seriovı port v textové podobì.
-- Následujícím stiskem tlaèítka se stopky dostanou do poèáteèního stavu.
+- Stopky budou na displeji zobrazovat ubÄ›hnutÃ½ Äas ve formÃ¡tu `00.00`, kde prvnÃ­ ÄÃ¡st jsou vteÅ™iny a druhÃ¡ ÄÃ¡st setiny vteÅ™in. Stopky mÄ›Å™Ã­ Äas do 99.99 vteÅ™in (pro jednoduchost).
+- Po zapnutÃ­ se stopky dostanou do poÄÃ¡teÄnÃ­ho stavu, kde na displeji vidÃ­te `00.00` a stopky ÄekajÃ­ na spuÅ¡tÄ›nÃ­.
+- Stopky se spustÃ­ krÃ¡tkÃ½m stiskem tlaÄÃ­tka.
+- NÃ¡sledujÃ­cÃ­ krÃ¡tkÃ© spuÅ¡tÄ›nÃ­ zaznamenÃ¡ meziÄas. MeziÄas se zobrazÃ­ na 1 vteÅ™inu na displeji (stopky mezitÃ­m bÄ›Å¾Ã­ dÃ¡l).
+- MezivÃ½sledek se uklÃ¡dÃ¡ do pamÄ›ti (stopky uloÅ¾Ã­ aÅ¾ 20 meziÄasÅ¯).
+- DlouhÃ½m stiskem tlaÄÃ­tka (delÅ¡Ã­m neÅ¾ 1 vteÅ™ina) se stopky zastavÃ­, na displeji zÅ¯stane svÃ­tit celkovÃ½ Äas a vÅ¡echny mezivÃ½sledky se vypÃ­Å¡ou na seriovÃ½ port v textovÃ© podobÄ›.
+- NÃ¡sledujÃ­cÃ­m stiskem tlaÄÃ­tka se stopky dostanou do poÄÃ¡teÄnÃ­ho stavu.
 
 
+### NÃ¡povÄ›da
+- funkce [millis()](https://www.arduino.cc/en/reference/millis) na strÃ¡nkÃ¡ch Arduina
+- vysvÄ›tlenÃ­ [koneÄnÃ©ho automatu (FSM)](http://voho.eu/wiki/konecny-automat/)
+- odchycenÃ­ zÃ¡kmitÅ¯ tlaÄÃ­tek pomocÃ­ funkce [Bounce()](https://github.com/thomasfredericks/Bounce2/wiki)
