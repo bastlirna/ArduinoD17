@@ -46,3 +46,4 @@ Během workshopu budete používat [EduShield](https://www.edushield.cz/cs/).
 - funkce [millis()](https://www.arduino.cc/en/reference/millis) na stránkách Arduina
 - vysvětlení [konečného automatu (FSM)](http://voho.eu/wiki/konecny-automat/)
 - odchycení zákmitů tlačítek pomocí funkce [Bounce()](https://github.com/thomasfredericks/Bounce2/wiki)
+- oficiální knihovna k EduShieldu [na GITu](https://github.com/maly/edushield)
