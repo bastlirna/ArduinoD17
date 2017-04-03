@@ -47,3 +47,4 @@ Během workshopu budete používat [EduShield](https://www.edushield.cz/cs/).
 - vysvětlení [konečného automatu (FSM)](http://voho.eu/wiki/konecny-automat/)
 - odchycení zákmitů tlačítek pomocí funkce [Bounce()](https://github.com/thomasfredericks/Bounce2/wiki)
 - oficiální knihovna k EduShieldu [na GITu](https://github.com/maly/edushield)
+- v GIT větvi [spoiler](https://github.com/bastlirna/ArduinoD17/tree/spoiler) je k nalezení kompletní kód
